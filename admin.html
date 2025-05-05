@@ -1,28 +1,28 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Administración de Usuarios</title>
+  <title>User Management</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
     :root {
-      --azul-panama: #003366;
-      --gris-fondo: #f5f7fa;
-      --azul-claro: #005a9e;
-      --azul-input: #e0f0ff;
+      --panama-blue: #003366;
+      --background-gray: #f5f7fa;
+      --light-blue: #005a9e;
+      --input-blue: #e0f0ff;
     }
 
     body, html {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background-color: var(--gris-fondo);
+      background-color: var(--background-gray);
       height: 100%;
       display: flex;
       flex-direction: column;
     }
 
     header {
-      background-color: var(--azul-panama);
+      background-color: var(--panama-blue);
       color: white;
       padding: 1rem 2rem;
       display: flex;
@@ -53,7 +53,7 @@
 
     nav.sidebar {
       width: 220px;
-      background-color: var(--azul-panama);
+      background-color: var(--panama-blue);
       color: white;
       padding: 2rem 1rem;
       display: flex;
@@ -91,7 +91,7 @@
     }
 
     h2 {
-      color: var(--azul-panama);
+      color: var(--panama-blue);
       margin-bottom: 1rem;
     }
 
@@ -107,21 +107,21 @@
     }
 
     th {
-      background-color: var(--azul-panama);
+      background-color: var(--panama-blue);
       color: white;
     }
 
     input[type="text"], input[type="email"] {
       width: 100%;
       padding: 0.4rem;
-      background-color: var(--azul-input);
+      background-color: var(--input-blue);
       border: 1px solid #ccc;
       border-radius: 4px;
     }
 
     .edit-btn {
       cursor: pointer;
-      color: var(--azul-claro);
+      color: var(--light-blue);
       font-weight: bold;
     }
 
@@ -130,7 +130,7 @@
     }
 
     footer {
-      background-color: var(--azul-panama);
+      background-color: var(--panama-blue);
       color: white;
       text-align: center;
       padding: 0.8rem;
@@ -140,57 +140,57 @@
 </head>
 <body>
   <header>
-    <h1><i class="fas fa-cogs"></i> Administración de Usuarios</h1>
+    <h1><i class="fas fa-cogs"></i> User Management</h1>
     <div class="user-info">
-      <strong>Usuario:</strong> José Pérez<br>
-      Rol: Administrador
+      <strong>User:</strong> José Pérez<br>
+      Role: Administrator
     </div>
   </header>
 
   <div class="main-container">
     <nav class="sidebar">
-      <a href="#"><i class="fas fa-file-signature"></i> Crear solicitud</a>
-      <a href="#"><i class="fas fa-folder-open"></i> Ver solicitudes</a>
-      <a href="#"><i class="fas fa-history"></i> Historial</a>
-      <a href="#"><i class="fas fa-check-circle"></i> Validación</a>
-      <a href="#"><i class="fas fa-chart-bar"></i> Reportes</a>
-      <a href="#"><i class="fas fa-cogs"></i> Administración</a>
+      <a href="#"><i class="fas fa-file-signature"></i> Create Request</a>
+      <a href="#"><i class="fas fa-folder-open"></i> View Requests</a>
+      <a href="#"><i class="fas fa-history"></i> History</a>
+      <a href="#"><i class="fas fa-check-circle"></i> Validation</a>
+      <a href="#"><i class="fas fa-chart-bar"></i> Reports</a>
+      <a href="#"><i class="fas fa-cogs"></i> Administration</a>
     </nav>
 
     <main>
       <div class="container">
-        <h2>Lista de Usuarios</h2>
+        <h2>User List</h2>
         <table>
           <thead>
             <tr>
               <th>ID</th>
-              <th>Nombre</th>
-              <th>Rol</th>
-              <th>Correo</th>
-              <th>Acción</th>
+              <th>Name</th>
+              <th>Role</th>
+              <th>Email</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td>U001</td>
               <td><input type="text" value="Carlos Ruiz" readonly /></td>
-              <td><input type="text" value="Validador" readonly /></td>
+              <td><input type="text" value="Validator" readonly /></td>
               <td><input type="email" value="cruiz@canal.gob.pa" readonly /></td>
-              <td><span class="edit-btn" onclick="toggleEdit(this)">Editar</span></td>
+              <td><span class="edit-btn" onclick="toggleEdit(this)">Edit</span></td>
             </tr>
             <tr>
               <td>U002</td>
               <td><input type="text" value="Laura Gómez" readonly /></td>
               <td><input type="text" value="Supervisor" readonly /></td>
               <td><input type="email" value="lgomez@canal.gob.pa" readonly /></td>
-              <td><span class="edit-btn" onclick="toggleEdit(this)">Editar</span></td>
+              <td><span class="edit-btn" onclick="toggleEdit(this)">Edit</span></td>
             </tr>
             <tr>
               <td>U003</td>
               <td><input type="text" value="Ricardo Ortega" readonly /></td>
-              <td><input type="text" value="Administrador" readonly /></td>
+              <td><input type="text" value="Administrator" readonly /></td>
               <td><input type="email" value="rortega@canal.gob.pa" readonly /></td>
-              <td><span class="edit-btn" onclick="toggleEdit(this)">Editar</span></td>
+              <td><span class="edit-btn" onclick="toggleEdit(this)">Edit</span></td>
             </tr>
           </tbody>
         </table>
@@ -199,7 +199,7 @@
   </div>
 
   <footer>
-    &copy; 2025 - Autoridad del Canal de Panamá · Sistema de Exención de Practicaje v1.0
+    &copy; 2025 - Panama Canal Authority · Pilotage Exemption System v1.0
   </footer>
 
   <script>
@@ -207,16 +207,16 @@
       const row = btn.closest('tr');
       const inputs = row.querySelectorAll('input');
 
-      if (btn.textContent === 'Editar') {
+      if (btn.textContent === 'Edit') {
         inputs.forEach(input => input.removeAttribute('readonly'));
-        btn.textContent = 'Guardar';
+        btn.textContent = 'Save';
         btn.style.color = 'green';
       } else {
         inputs.forEach(input => input.setAttribute('readonly', true));
-        btn.textContent = 'Editar';
+        btn.textContent = 'Edit';
         btn.style.color = '#005a9e';
-        // Aquí podrías agregar lógica para guardar en backend
-        console.log("Datos guardados:", [...inputs].map(i => i.value));
+        // Here you could add logic to send data to backend
+        console.log("Saved data:", [...inputs].map(i => i.value));
       }
     }
   </script>
