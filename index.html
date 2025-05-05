@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ingreso - Exención de Practicaje</title>
+  <style>
+    :root {
+      --azul-panama: #003366;
+      --rojo-panama: #B22234;
+      --gris-claro: #f9f9f9;
+      --fondo-blanco: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--gris-claro);
+    }
+
+    header {
+      background-color: var(--azul-panama);
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    header img {
+      height: 42px;
+    }
+
+    header h1 {
+      font-size: 1.2rem;
+      font-weight: 500;
+    }
+
+    .container {
+      display: flex;
+      height: calc(100% - 100px);
+    }
+
+    .left {
+      flex: 1;
+      background: url('./imagen/fondo-oficial.jpg') no-repeat center center;
+      background-size: cover;
+    }
+
+    .right {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: var(--fondo-blanco);
+    }
+
+    .form-box {
+      background-color: var(--fondo-blanco);
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 350px;
+    }
+
+    .form-box h2 {
+      margin-bottom: 0.8rem;
+      color: var(--azul-panama);
+      text-align: center;
+    }
+
+    .form-box p {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+      color: #555;
+    }
+
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.4rem;
+      font-weight: bold;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 0.6rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    .button {
+      width: 100%;
+      padding: 0.7rem;
+      background-color: var(--rojo-panama);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .button:hover {
+      background-color: #991c28;
+    }
+
+    footer {
+      background-color: var(--azul-panama);
+      color: white;
+      text-align: center;
+      padding: 0.5rem;
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+
+      .left, .right {
+        flex: none;
+        width: 100%;
+        height: 50%;
+      }
+
+      .right {
+        padding: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="./imagen/login-icon.png" alt="Logo ACP">
+    <h1>Gestión de Solicitudes de Exención de Practicaje</h1>
+  </header>
+
+  <div class="container">
+    <div class="left"></div>
+    <div class="right">
+      <div class="form-box">
+        <h2>Iniciar sesión</h2>
+        <p>Ingresa tu correo electrónico y contraseña</p>
+        <form action="/login" method="POST">
+          <div class="form-group">
+            <label for="email">Correo electrónico*</label>
+            <input type="email" id="email" name="email" placeholder="correo@dominio.com" required>
+          </div>
+          <div class="form-group">
+            <label for="password">Contraseña*</label>
+            <input type="password" id="password" name="password" placeholder="Contraseña" required>
+          </div>
+          <button type="submit" class="button">Iniciar sesión</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 - Autoridad del Canal de Panamá | Versión 1.0
+  </footer>
+
+</body>
+</html>

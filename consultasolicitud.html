@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ver Solicitudes de Exención</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    :root {
+      --azul-panama: #003366;
+      --gris-fondo: #f5f7fa;
+      --azul-claro: #005a9e;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--gris-fondo);
+    }
+
+    header {
+      background-color: var(--azul-panama);
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .user-info {
+      text-align: right;
+      font-size: 0.85rem;
+    }
+
+    h1 {
+      font-size: 1.2rem;
+    }
+
+    .main-container {
+      display: flex;
+    }
+
+    nav.sidebar {
+      width: 220px;
+      background-color: var(--azul-panama);
+      color: white;
+      padding: 2rem 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .sidebar a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .sidebar a:hover {
+      background-color: rgba(255,255,255,0.1);
+    }
+
+    main {
+      flex: 1;
+      padding: 2rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: white;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    th, td {
+      padding: 0.75rem;
+      border-bottom: 1px solid #ddd;
+      text-align: left;
+    }
+
+    th {
+      background-color: var(--azul-panama);
+      color: white;
+    }
+
+    tr:hover {
+      background-color: #f1f1f1;
+    }
+
+    .status {
+      padding: 0.3rem 0.6rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      color: white;
+    }
+
+    .pendiente { background-color: #d97706; }
+    .aprobada { background-color: #16a34a; }
+    .rechazada { background-color: #dc2626; }
+
+    footer {
+      background-color: var(--azul-panama);
+      color: white;
+      text-align: center;
+      padding: 0.8rem;
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1><i class="fas fa-folder-open"></i> Ver Solicitudes</h1>
+    <div class="user-info">
+      <strong>Usuario:</strong> José Pérez<br>
+      Rol: Validador
+    </div>
+  </header>
+
+  <div class="main-container">
+    <nav class="sidebar">
+      <a href="#"><i class="fas fa-file-signature"></i> Crear solicitud</a>
+      <a href="#"><i class="fas fa-folder-open"></i> Ver solicitudes</a>
+      <a href="#"><i class="fas fa-history"></i> Historial</a>
+      <a href="#"><i class="fas fa-check-circle"></i> Validación</a>
+      <a href="#"><i class="fas fa-chart-bar"></i> Reportes</a>
+      <a href="#"><i class="fas fa-cogs"></i> Administración</a>
+    </nav>
+
+    <main>
+      <h2>Listado de Solicitudes</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Empresa</th>
+            <th>Embarcación</th>
+            <th>Operador</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>001</td>
+            <td>Transmar</td>
+            <td>Oceanía</td>
+            <td>Carlos Ruiz</td>
+            <td><span class="status pendiente">Pendiente</span></td>
+            <td><a href="#"><i class="fas fa-eye"></i> Ver</a></td>
+          </tr>
+          <tr>
+            <td>002</td>
+            <td>Canal Logistics</td>
+            <td>Barú</td>
+            <td>Laura Gómez</td>
+            <td><span class="status aprobada">Aprobada</span></td>
+            <td><a href="#"><i class="fas fa-eye"></i> Ver</a></td>
+          </tr>
+          <tr>
+            <td>003</td>
+            <td>Pacifico S.A.</td>
+            <td>Neptuno</td>
+            <td>Ricardo Ortega</td>
+            <td><span class="status rechazada">Rechazada</span></td>
+            <td><a href="file:///Users/adelgado/Desktop/SistemaExtencionPracticaje/ver.html"><i class="fas fa-eye"></i> Ver</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
+  </div>
+
+  <footer>
+    &copy; 2025 - Autoridad del Canal de Panamá · Sistema de Exención de Practicaje v1.0
+  </footer>
+</body>
+</html>

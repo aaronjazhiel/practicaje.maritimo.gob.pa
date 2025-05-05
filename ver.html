@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Detalle de Solicitud</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    :root {
+      --azul-panama: #003366;
+      --gris-fondo: #f5f7fa;
+      --azul-claro: #005a9e;
+    }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--gris-fondo);
+    }
+    header {
+      background-color: var(--azul-panama);
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 {
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    main {
+      padding: 2rem;
+      max-width: 1000px;
+      margin: auto;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: var(--azul-panama);
+      margin-bottom: 1rem;
+    }
+    .section {
+      margin-bottom: 2rem;
+    }
+    .section h3 {
+      color: var(--azul-claro);
+      border-bottom: 2px solid var(--azul-claro);
+      padding-bottom: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    .field {
+      margin-bottom: 0.5rem;
+    }
+    .field label {
+      font-weight: bold;
+      display: block;
+    }
+    .field span {
+      display: block;
+      background: #e0f0ff;
+      padding: 0.5rem;
+      border-radius: 5px;
+    }
+    .back-btn {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background-color: var(--azul-claro);
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+    footer {
+      background-color: var(--azul-panama);
+      color: white;
+      text-align: center;
+      padding: 0.8rem;
+      font-size: 0.85rem;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1><i class="fas fa-eye"></i> Detalle de Solicitud</h1>
+    <div class="user-info">
+      <strong>Usuario:</strong> José Pérez<br>
+      Rol: Validador
+    </div>
+  </header>
+  <main>
+    <h2>Solicitud ID: 001</h2>
+
+    <div class="section">
+      <h3>1. Datos de la Empresa</h3>
+      <div class="field"><label>Empresa:</label><span>Transmar</span></div>
+      <div class="field"><label>RUC:</label><span>123456789</span></div>
+      <div class="field"><label>Representante:</label><span>Carlos Ruiz</span></div>
+    </div>
+
+    <div class="section">
+      <h3>2. Datos de la Embarcación</h3>
+      <div class="field"><label>Nombre:</label><span>Oceanía</span></div>
+      <div class="field"><label>Tipo:</label><span>Carga</span></div>
+    </div>
+
+    <div class="section">
+      <h3>3. Datos del Operador</h3>
+      <div class="field"><label>Nombre:</label><span>Carlos Ruiz</span></div>
+      <div class="field"><label>Licencia AMP:</label><span>AMP-987654</span></div>
+    </div>
+
+    <div class="section">
+      <h3>4. Detalles de la Solicitud</h3>
+      <div class="field"><label>Estado:</label><span>Pendiente</span></div>
+      <div class="field"><label>Fecha:</label><span>02/05/2025</span></div>
+    </div>
+
+    <a class="back-btn" href="#"><i class="fas fa-arrow-left"></i> Volver</a>
+  </main>
+  <footer>
+    &copy; 2025 - Autoridad del Canal de Panamá · Sistema de Exención de Practicaje v1.0
+  </footer>
+</body>
+</html>
