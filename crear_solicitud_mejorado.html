@@ -142,3 +142,87 @@
       background: var(--gris-input);
       border: 1px solid #ccc;
       border-radius: 5px;
+    }
+
+    .full {
+      grid-column: 1 / -1;
+    }
+
+    .submit-btn {
+      margin-top: 2rem;
+      text-align: right;
+    }
+
+    button {
+      background-color: var(--azul-panama);
+      color: white;
+      padding: 0.7rem 1.5rem;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #00254d;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1><img src="./imagen/login-icon.png" alt="Logo"> Pilotage Exemption Request</h1>
+    <div class="user-info">
+      <strong>User:</strong> John Smith<br>
+      Role: Applicant
+    </div>
+  </header>
+
+  <div class="progress-bar">
+    <span>Company</span> ✔ Registered |
+    <span>Vessel</span> ✔ Data complete |
+    <span>Operator</span> ✖ Missing documents |
+    <span>Request</span> ✖ Pending attachments
+  </div>
+
+  <div class="main-container">
+    <nav class="sidebar">
+      <a href="#"><i class="fas fa-file-signature"></i> Create Request</a>
+      <a href="#"><i class="fas fa-folder-open"></i> View Requests</a>
+      <a href="#"><i class="fas fa-history"></i> History</a>
+      <a href="#"><i class="fas fa-check-circle"></i> Validation</a>
+      <a href="#"><i class="fas fa-chart-bar"></i> Reports</a>
+      <a href="#"><i class="fas fa-cogs"></i> Admin</a>
+    </nav>
+
+    <main>
+      <div class="container">
+        <h2><i class="fas fa-ship"></i> New Exemption Request</h2>
+
+        <details open>
+          <summary>1. Company Information</summary>
+          <form>
+            <div>
+              <label>Company Name</label>
+              <input type="text" name="companyName" required>
+            </div>
+            <div>
+              <label>RUC</label>
+              <input type="text" name="ruc" required>
+            </div>
+            <div class="full">
+              <label>Representative</label>
+              <input type="text" name="representative" required>
+            </div>
+          </form>
+        </details>
+
+        <div class="submit-btn">
+          <button type="submit"><i class="fas fa-paper-plane"></i> Submit Request</button>
+        </div>
+      </div>
+    </main>
+  </div>
+
+</body>
+</html>
