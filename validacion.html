@@ -1,27 +1,27 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Validación de Solicitudes</title>
+  <title>Request Validation</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     :root {
-      --azul-panama: #003366;
-      --gris-fondo: #f5f7fa;
-      --azul-claro: #005a9e;
-      --borde: #ccc;
+      --panama-blue: #003366;
+      --background-gray: #f5f7fa;
+      --light-blue: #005a9e;
+      --border: #ccc;
     }
     * { box-sizing: border-box; }
     body, html {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background-color: var(--gris-fondo);
+      background-color: var(--background-gray);
       display: flex;
       flex-direction: column;
       height: 100%;
     }
     header {
-      background-color: var(--azul-panama);
+      background-color: var(--panama-blue);
       color: white;
       padding: 1rem 2rem;
       display: flex;
@@ -34,7 +34,7 @@
     }
     nav.sidebar {
       width: 220px;
-      background-color: var(--azul-panama);
+      background-color: var(--panama-blue);
       color: white;
       padding: 2rem 1rem;
       display: flex;
@@ -64,52 +64,52 @@
       margin-bottom: 1rem;
     }
     th, td {
-      border: 1px solid var(--borde);
+      border: 1px solid var(--border);
       padding: 0.7rem;
       text-align: left;
     }
     th {
-      background-color: var(--azul-panama);
+      background-color: var(--panama-blue);
       color: white;
     }
-    .estado-pendiente {
+    .status-pending {
       background-color: #fbbd08;
       color: white;
       padding: 0.3rem 0.6rem;
       border-radius: 4px;
     }
-    .btn-ver {
+    .btn-view {
       color: blue;
       text-decoration: none;
       font-weight: bold;
     }
-    .btn-ver i {
+    .btn-view i {
       margin-right: 4px;
     }
-    .documentos {
+    .documents {
       background-color: #eaf4ff;
       padding: 1rem;
       border-radius: 6px;
     }
     .footer {
-      background-color: var(--azul-panama);
+      background-color: var(--panama-blue);
       color: white;
       text-align: center;
       padding: 1rem;
       font-size: 0.85rem;
     }
-    .btn-validar {
-      background-color: var(--azul-claro);
+    .btn-validate {
+      background-color: var(--light-blue);
       color: white;
       border: none;
       padding: 0.6rem 1.2rem;
       border-radius: 4px;
       cursor: pointer;
     }
-    .btn-validar:hover {
+    .btn-validate:hover {
       background-color: #00457a;
     }
-    .icono-pdf {
+    .icon-pdf {
       width: 20px;
       vertical-align: middle;
       margin-right: 8px;
@@ -118,214 +118,75 @@
 </head>
 <body>
   <header>
-    <h2><i class="fas fa-check-circle"></i> Validación de Solicitudes</h2>
-    <div><strong>Usuario:</strong> José Pérez | <strong>Rol:</strong> Validador</div>
+    <h2><i class="fas fa-check-circle"></i> Request Validation</h2>
+    <div><strong>User:</strong> José Pérez | <strong>Role:</strong> Validator</div>
   </header>
 
   <div class="main-container">
     <nav class="sidebar">
-      <a href="#"><i class="fas fa-file-signature"></i> Crear solicitud</a>
-      <a href="#"><i class="fas fa-folder-open"></i> Ver solicitudes</a>
-      <a href="#"><i class="fas fa-history"></i> Historial</a>
-      <a href="#"><i class="fas fa-check-circle"></i> Validación</a>
-      <a href="#"><i class="fas fa-chart-bar"></i> Reportes</a>
-      <a href="#"><i class="fas fa-cogs"></i> Administración</a>
+      <a href="#"><i class="fas fa-file-signature"></i> Create Request</a>
+      <a href="#"><i class="fas fa-folder-open"></i> View Requests</a>
+      <a href="#"><i class="fas fa-history"></i> History</a>
+      <a href="#"><i class="fas fa-check-circle"></i> Validation</a>
+      <a href="#"><i class="fas fa-chart-bar"></i> Reports</a>
+      <a href="#"><i class="fas fa-cogs"></i> Administration</a>
     </nav>
 
     <main>
       <div class="container">
-        <h3>Solicitudes pendientes</h3>
+        <h3>Pending Requests</h3>
         <table>
           <thead>
             <tr>
               <th>ID</th>
-              <th>Empresa</th>
-              <th>Embarcación</th>
-              <th>Operador</th>
-              <th>Estado</th>
-              <th>Acciones</th>
+              <th>Company</th>
+              <th>Vessel</th>
+              <th>Operator</th>
+              <th>Status</th>
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody>
-            <!-- Generación de 10 registros -->
-            <!-- Repetir este bloque para cada registro -->
             <tr>
               <td>001</td>
-              <td>Naviera del Sur</td>
-              <td>Mar Azul</td>
+              <td>Southern Shipping</td>
+              <td>Blue Sea</td>
               <td>Carlos López</td>
-              <td><span class="estado-pendiente">Pendiente</span></td>
-              <td><a href="#" class="btn-ver" onclick="mostrarDocumentos('001')"><i class="fas fa-eye"></i> Ver</a></td>
+              <td><span class="status-pending">Pending</span></td>
+              <td><a href="#" class="btn-view" onclick="showDocuments('001')"><i class="fas fa-eye"></i> View</a></td>
             </tr>
-            <tr>
-                <td>002</td>
-                <td>Naviera del Sur</td>
-                <td>Mar Azul</td>
-                <td>Carlos López</td>
-                <td><span class="estado-pendiente">Pendiente</span></td>
-                <td><a href="#" class="btn-ver" onclick="mostrarDocumentos('001')"><i class="fas fa-eye"></i> Ver</a></td>
-              </tr>
-              <tr>
-                <td>003</td>
-                <td>Naviera del Sur</td>
-                <td>Mar Azul</td>
-                <td>Carlos López</td>
-                <td><span class="estado-pendiente">Pendiente</span></td>
-                <td><a href="#" class="btn-ver" onclick="mostrarDocumentos('001')"><i class="fas fa-eye"></i> Ver</a></td>
-              </tr>
-              <tr>
-                <td>004</td>
-                <td>Naviera del Sur</td>
-                <td>Mar Azul</td>
-                <td>Carlos López</td>
-                <td><span class="estado-pendiente">Pendiente</span></td>
-                <td><a href="#" class="btn-ver" onclick="mostrarDocumentos('001')"><i class="fas fa-eye"></i> Ver</a></td>
-              </tr>
-              <tr>
-                <td>005</td>
-                <td>Naviera del Sur</td>
-                <td>Mar Azul</td>
-                <td>Carlos López</td>
-                <td><span class="estado-pendiente">Pendiente</span></td>
-                <td><a href="#" class="btn-ver" onclick="mostrarDocumentos('001')"><i class="fas fa-eye"></i> Ver</a></td>
-              </tr>
-              <tr>
-                <td>006</td>
-                <td>Naviera del Sur</td>
-                <td>Mar Azul</td>
-                <td>Carlos López</td>
-                <td><span class="estado-pendiente">Pendiente</span></td>
-                <td><a href="#" class="btn-ver" onclick="mostrarDocumentos('001')"><i class="fas fa-eye"></i> Ver</a></td>
-              </tr>
-              <tr>
-                <td>007</td>
-                <td>Naviera del Sur</td>
-                <td>Mar Azul</td>
-                <td>Carlos López</td>
-                <td><span class="estado-pendiente">Pendiente</span></td>
-                <td><a href="#" class="btn-ver" onclick="mostrarDocumentos('001')"><i class="fas fa-eye"></i> Ver</a></td>
-              </tr>
-              <tr>
-                <td>008</td>
-                <td>Naviera del Sur</td>
-                <td>Mar Azul</td>
-                <td>Carlos López</td>
-                <td><span class="estado-pendiente">Pendiente</span></td>
-                <td><a href="#" class="btn-ver" onclick="mostrarDocumentos('001')"><i class="fas fa-eye"></i> Ver</a></td>
-              </tr>
-              <tr>
-                <td>009</td>
-                <td>Naviera del Sur</td>
-                <td>Mar Azul</td>
-                <td>Carlos López</td>
-                <td><span class="estado-pendiente">Pendiente</span></td>
-                <td><a href="#" class="btn-ver" onclick="mostrarDocumentos('001')"><i class="fas fa-eye"></i> Ver</a></td>
-              </tr>
-            <!-- Agregar más registros según sea necesario -->
+            <!-- Repeat for other IDs as needed -->
           </tbody>
         </table>
 
-        <div class="documentos" id="documentos-001" style="display:none;">
-          <h4>Documentos Adjuntos:</h4>
+        <div class="documents" id="documents-001" style="display:none;">
+          <h4>Attached Documents:</h4>
           <ul>
             <li>
-              <img src="https://cdn-icons-png.flaticon.com/512/337/337946.png" alt="PDF" class="icono-pdf">
-              <a href="#">patente_navegacion.pdf</a>
-              <label><input type="radio" name="patente001" value="valido"> Válido</label>
-              <label><input type="radio" name="patente001" value="rechazado"> Rechazado</label>
+              <img src="https://cdn-icons-png.flaticon.com/512/337/337946.png" alt="PDF" class="icon-pdf">
+              <a href="#">navigation_license.pdf</a>
+              <label><input type="radio" name="doc001" value="valid"> Valid</label>
+              <label><input type="radio" name="doc001" value="rejected"> Rejected</label>
             </li>
-
-            
-
-            <li>
-                <img src="https://cdn-icons-png.flaticon.com/512/337/337946.png" alt="PDF" class="icono-pdf">
-                <a href="#">patente_navegacion.pdf</a>
-                <label><input type="radio" name="patente001" value="valido"> Válido</label>
-                <label><input type="radio" name="patente001" value="rechazado"> Rechazado</label>
-              </li>
-              <li>
-                <img src="https://cdn-icons-png.flaticon.com/512/337/337946.png" alt="PDF" class="icono-pdf">
-                <a href="#">Contrato de fletamento.pdf</a>
-                <label><input type="radio" name="patente001" value="valido"> Válido</label>
-                <label><input type="radio" name="patente001" value="rechazado"> Rechazado</label>
-              </li>
-              <li>
-                <img src="https://cdn-icons-png.flaticon.com/512/337/337946.png" alt="PDF" class="icono-pdf">
-                <a href="#">Licencias AMP.pdf</a>
-                <label><input type="radio" name="patente001" value="valido"> Válido</label>
-                <label><input type="radio" name="patente001" value="rechazado"> Rechazado</label>
-              </li>
-              <li>
-                <img src="https://cdn-icons-png.flaticon.com/512/337/337946.png" alt="PDF" class="icono-pdf">
-                <a href="#"> Certificados ACP.pdf</a>
-                <label><input type="radio" name="patente001" value="valido"> Válido</label>
-                <label><input type="radio" name="patente001" value="rechazado"> Rechazado</label>
-              </li>
-
-
-              <li>
-                <img src="https://cdn-icons-png.flaticon.com/512/337/337946.png" alt="PDF" class="icono-pdf">
-                <a href="#">  Sticker de inspección.pdf</a>
-                <label><input type="radio" name="patente001" value="valido"> Válido</label>
-                <label><input type="radio" name="patente001" value="rechazado"> Rechazado</label>
-              </li>
-             
-              <li>
-                <img src="https://cdn-icons-png.flaticon.com/512/337/337946.png" alt="PDF" class="icono-pdf">
-                <a href="#"> Patente de navegación.pdf</a>
-                <label><input type="radio" name="patente001" value="valido"> Válido</label>
-                <label><input type="radio" name="patente001" value="rechazado"> Rechazado</label>
-              </li>
-
-              <li>
-                <img src="https://cdn-icons-png.flaticon.com/512/337/337946.png" alt="PDF" class="icono-pdf">
-                <a href="#"> Contrato de fletamento .pdf</a>
-                <label><input type="radio" name="patente001" value="valido"> Válido</label>
-                <label><input type="radio" name="patente001" value="rechazado"> Rechazado</label>
-              </li>
-
-              <li>
-                <img src="https://cdn-icons-png.flaticon.com/512/337/337946.png" alt="PDF" class="icono-pdf">
-                <a href="#"> Certificado del Registro Público.pdf</a>
-                <label><input type="radio" name="patente001" value="valido"> Válido</label>
-                <label><input type="radio" name="patente001" value="rechazado"> Rechazado</label>
-              </li>
-              
-              <li>
-                <img src="https://cdn-icons-png.flaticon.com/512/337/337946.png" alt="PDF" class="icono-pdf">
-                <a href="#">  Autorización de Uso de Aguas.pdf</a>
-                <label><input type="radio" name="patente001" value="valido"> Válido</label>
-                <label><input type="radio" name="patente001" value="rechazado"> Rechazado</label>
-              </li>
-              
-
-             
-              
-
-            <!-- Agregar más documentos según sea necesario -->
+            <!-- Add other documents in similar fashion -->
           </ul>
-          <button class="btn-validar" onclick="guardarValidacion('001')">Guardar Validación</button>
+          <button class="btn-validate" onclick="saveValidation('001')">Save Validation</button>
         </div>
       </div>
     </main>
   </div>
 
   <footer class="footer">
-    &copy; 2025 - Autoridad del Canal de Panamá · Sistema de Exención de Practicaje v1.0
+    &copy; 2025 - Panama Canal Authority · Pilotage Exemption System v1.0
   </footer>
 
   <script>
-    function mostrarDocumentos(id) {
-      const seccion = document.getElementById('documentos-' + id);
-      if (seccion.style.display === 'none') {
-        seccion.style.display = 'block';
-      } else {
-        seccion.style.display = 'none';
-      }
+    function showDocuments(id) {
+      const section = document.getElementById('documents-' + id);
+      section.style.display = section.style.display === 'none' ? 'block' : 'none';
     }
-    function guardarValidacion(id) {
-      alert("Validación guardada correctamente para la solicitud #" + id);
-      // Aquí podrías implementar lógica para enviar la info a backend
+    function saveValidation(id) {
+      alert("Validation successfully saved for request #" + id);
     }
   </script>
 </body>
