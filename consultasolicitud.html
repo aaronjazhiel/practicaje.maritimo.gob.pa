@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Ver Solicitudes de Exención</title>
+  <title>View Exemption Requests</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     :root {
@@ -98,9 +98,9 @@
       color: white;
     }
 
-    .pendiente { background-color: #d97706; }
-    .aprobada { background-color: #16a34a; }
-    .rechazada { background-color: #dc2626; }
+    .pending { background-color: #d97706; }
+    .approved { background-color: #16a34a; }
+    .rejected { background-color: #dc2626; }
 
     footer {
       background-color: var(--azul-panama);
@@ -113,34 +113,34 @@
 </head>
 <body>
   <header>
-    <h1><i class="fas fa-folder-open"></i> Ver Solicitudes</h1>
+    <h1><i class="fas fa-folder-open"></i> View Requests</h1>
     <div class="user-info">
-      <strong>Usuario:</strong> José Pérez<br>
-      Rol: Validador
+      <strong>User:</strong> José Pérez<br>
+      Role: Validator
     </div>
   </header>
 
   <div class="main-container">
     <nav class="sidebar">
-      <a href="#"><i class="fas fa-file-signature"></i> Crear solicitud</a>
-      <a href="#"><i class="fas fa-folder-open"></i> Ver solicitudes</a>
-      <a href="#"><i class="fas fa-history"></i> Historial</a>
-      <a href="#"><i class="fas fa-check-circle"></i> Validación</a>
-      <a href="#"><i class="fas fa-chart-bar"></i> Reportes</a>
-      <a href="#"><i class="fas fa-cogs"></i> Administración</a>
+      <a href="#"><i class="fas fa-file-signature"></i> Create Request</a>
+      <a href="#"><i class="fas fa-folder-open"></i> View Requests</a>
+      <a href="#"><i class="fas fa-history"></i> History</a>
+      <a href="#"><i class="fas fa-check-circle"></i> Validation</a>
+      <a href="#"><i class="fas fa-chart-bar"></i> Reports</a>
+      <a href="#"><i class="fas fa-cogs"></i> Administration</a>
     </nav>
 
     <main>
-      <h2>Listado de Solicitudes</h2>
+      <h2>Request List</h2>
       <table>
         <thead>
           <tr>
             <th>ID</th>
-            <th>Empresa</th>
-            <th>Embarcación</th>
-            <th>Operador</th>
-            <th>Estado</th>
-            <th>Acciones</th>
+            <th>Company</th>
+            <th>Vessel</th>
+            <th>Operator</th>
+            <th>Status</th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -149,24 +149,24 @@
             <td>Transmar</td>
             <td>Oceanía</td>
             <td>Carlos Ruiz</td>
-            <td><span class="status pendiente">Pendiente</span></td>
-            <td><a href="https://aaronjazhiel.github.io/practicaje.maritimo.gob.pa/ver.html"><i class="fas fa-eye"></i> Ver</a></td>
+            <td><span class="status pending">Pending</span></td>
+            <td><a href="https://aaronjazhiel.github.io/practicaje.maritimo.gob.pa/ver.html"><i class="fas fa-eye"></i> View</a></td>
           </tr>
           <tr>
             <td>002</td>
             <td>Canal Logistics</td>
             <td>Barú</td>
             <td>Laura Gómez</td>
-            <td><span class="status aprobada">Aprobada</span></td>
-            <td><a href="https://aaronjazhiel.github.io/practicaje.maritimo.gob.pa/ver.html"><i class="fas fa-eye"></i> Ver</a></td>
+            <td><span class="status approved">Approved</span></td>
+            <td><a href="https://aaronjazhiel.github.io/practicaje.maritimo.gob.pa/ver.html"><i class="fas fa-eye"></i> View</a></td>
           </tr>
           <tr>
             <td>003</td>
             <td>Pacifico S.A.</td>
             <td>Neptuno</td>
             <td>Ricardo Ortega</td>
-            <td><span class="status rechazada">Rechazada</span></td>
-            <td><a href="https://aaronjazhiel.github.io/practicaje.maritimo.gob.pa/ver.html"><i class="fas fa-eye"></i> Ver</a></td>
+            <td><span class="status rejected">Rejected</span></td>
+            <td><a href="https://aaronjazhiel.github.io/practicaje.maritimo.gob.pa/ver.html"><i class="fas fa-eye"></i> View</a></td>
           </tr>
         </tbody>
       </table>
@@ -174,7 +174,7 @@
   </div>
 
   <footer>
-    &copy; 2025 - Autoridad del Canal de Panamá · Sistema de Exención de Practicaje v1.0
+    &copy; 2025 - Panama Canal Authority · Pilotage Exemption System v1.0
   </footer>
 </body>
 </html>
