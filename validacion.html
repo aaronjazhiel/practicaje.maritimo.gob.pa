@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Validación de Solicitudes</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    :root {
+      --azul-panama: #003366;
+      --gris-fondo: #f5f7fa;
+      --azul-claro: #005a9e;
+      --borde: #ccc;
+    }
+    * { box-sizing: border-box; }
+    body, html {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--gris-fondo);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    header {
+      background-color: var(--azul-panama);
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .main-container {
+      display: flex;
+      flex: 1;
+    }
+    nav.sidebar {
+      width: 220px;
+      background-color: var(--azul-panama);
+      color: white;
+      padding: 2rem 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+    .sidebar a {
+      color: white;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    main {
+      flex: 1;
+      padding: 2rem;
+    }
+    .container {
+      background: white;
+      border-radius: 8px;
+      padding: 2rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 1rem;
+    }
+    th, td {
+      border: 1px solid var(--borde);
+      padding: 0.7rem;
+      text-align: left;
+    }
+    th {
+      background-color: var(--azul-panama);
+      color: white;
+    }
+    .estado-pendiente {
+      background-color: #fbbd08;
+      color: white;
+      padding: 0.3rem 0.6rem;
+      border-radius: 4px;
+    }
+    .btn-ver {
+      color: blue;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .btn-ver i {
+      margin-right: 4px;
+    }
+    .documentos {
+      background-color: #eaf4ff;
+      padding: 1rem;
+      border-radius: 6px;
+    }
+    .footer {
+      background-color: var(--azul-panama);
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.85rem;
+    }
+    .btn-validar {
+      background-color: var(--azul-claro);
+      color: white;
+      border: none;
+      padding: 0.6rem 1.2rem;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .btn-validar:hover {
+      background-color: #00457a;
+    }
+    .icono-pdf {
+      width: 20px;
+      vertical-align: middle;
+      margin-right: 8px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h2><i class="fas fa-check-circle"></i> Validación de Solicitudes</h2>
+    <div><strong>Usuario:</strong> José Pérez | <strong>Rol:</strong> Validador</div>
+  </header>
+
+  <div class="main-container">
+    <nav class="sidebar">
+      <a href="#"><i class="fas fa-file-signature"></i> Crear solicitud</a>
+      <a href="#"><i class="fas fa-folder-open"></i> Ver solicitudes</a>
+      <a href="#"><i class="fas fa-history"></i> Historial</a>
+      <a href="#"><i class="fas fa-check-circle"></i> Validación</a>
+      <a href="#"><i class="fas fa-chart-bar"></i> Reportes</a>
+      <a href="#"><i class="fas fa-cogs"></i> Administración</a>
+    </nav>
+
+    <main>
+      <div class="container">
+        <h3>Solicitudes pendientes</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Empresa</th>
+              <th>Embarcación</th>
+              <th>Operador</th>
+              <th>Estado</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Generación de 10 registros -->
+            <!-- Repetir este bloque para cada registro -->
+            <tr>
+              <td>001</td>
+              <td>Naviera del Sur</td>
+              <td>Mar Azul</td>
+              <td>Carlos López</td>
+              <td><span class="estado-pendiente">Pendiente</span></td>
+              <td><a href="#" class="btn-ver" onclick="mostrarDocumentos('001')"><i class="fas fa-eye"></i> Ver</a></td>
+            </tr>
+            <tr>
+                <td>002</td>
+                <td>Naviera del Sur</td>
+                <td>Mar Azul</td>
+                <td>Carlos López</td>
+                <td><span class="estado-pendiente">Pendiente</span></td>
+                <td><a href="#" class="btn-ver" onclick="mostrarDocumentos('001')"><i class="fas fa-eye"></i> Ver</a></td>
+              </tr>
+              <tr>
+                <td>003</td>
+                <td>Naviera del Sur</td>
+                <td>Mar Azul</td>
+                <td>Carlos López</td>
+                <td><span class="estado-pendiente">Pendiente</span></td>
+                <td><a href="#" class="btn-ver" onclick="mostrarDocumentos('001')"><i class="fas fa-eye"></i> Ver</a></td>
+              </tr>
+              <tr>
+                <td>004</td>
+                <td>Naviera del Sur</td>
+                <td>Mar Azul</td>
+                <td>Carlos López</td>
+                <td><span class="estado-pendiente">Pendiente</span></td>
+                <td><a href="#" class="btn-ver" onclick="mostrarDocumentos('001')"><i class="fas fa-eye"></i> Ver</a></td>
+              </tr>
+              <tr>
+                <td>005</td>
+                <td>Naviera del Sur</td>
+                <td>Mar Azul</td>
+                <td>Carlos López</td>
+                <td><span class="estado-pendiente">Pendiente</span></td>
+                <td><a href="#" class="btn-ver" onclick="mostrarDocumentos('001')"><i class="fas fa-eye"></i> Ver</a></td>
+              </tr>
+              <tr>
+                <td>006</td>
+                <td>Naviera del Sur</td>
+                <td>Mar Azul</td>
+                <td>Carlos López</td>
+                <td><span class="estado-pendiente">Pendiente</span></td>
+                <td><a href="#" class="btn-ver" onclick="mostrarDocumentos('001')"><i class="fas fa-eye"></i> Ver</a></td>
+              </tr>
+              <tr>
+                <td>007</td>
+                <td>Naviera del Sur</td>
+                <td>Mar Azul</td>
+                <td>Carlos López</td>
+                <td><span class="estado-pendiente">Pendiente</span></td>
+                <td><a href="#" class="btn-ver" onclick="mostrarDocumentos('001')"><i class="fas fa-eye"></i> Ver</a></td>
+              </tr>
+              <tr>
+                <td>008</td>
+                <td>Naviera del Sur</td>
+                <td>Mar Azul</td>
+                <td>Carlos López</td>
+                <td><span class="estado-pendiente">Pendiente</span></td>
+                <td><a href="#" class="btn-ver" onclick="mostrarDocumentos('001')"><i class="fas fa-eye"></i> Ver</a></td>
+              </tr>
+              <tr>
+                <td>009</td>
+                <td>Naviera del Sur</td>
+                <td>Mar Azul</td>
+                <td>Carlos López</td>
+                <td><span class="estado-pendiente">Pendiente</span></td>
+                <td><a href="#" class="btn-ver" onclick="mostrarDocumentos('001')"><i class="fas fa-eye"></i> Ver</a></td>
+              </tr>
+            <!-- Agregar más registros según sea necesario -->
+          </tbody>
+        </table>
+
+        <div class="documentos" id="documentos-001" style="display:none;">
+          <h4>Documentos Adjuntos:</h4>
+          <ul>
+            <li>
+              <img src="https://cdn-icons-png.flaticon.com/512/337/337946.png" alt="PDF" class="icono-pdf">
+              <a href="#">patente_navegacion.pdf</a>
+              <label><input type="radio" name="patente001" value="valido"> Válido</label>
+              <label><input type="radio" name="patente001" value="rechazado"> Rechazado</label>
+            </li>
+
+            
+
+            <li>
+                <img src="https://cdn-icons-png.flaticon.com/512/337/337946.png" alt="PDF" class="icono-pdf">
+                <a href="#">patente_navegacion.pdf</a>
+                <label><input type="radio" name="patente001" value="valido"> Válido</label>
+                <label><input type="radio" name="patente001" value="rechazado"> Rechazado</label>
+              </li>
+              <li>
+                <img src="https://cdn-icons-png.flaticon.com/512/337/337946.png" alt="PDF" class="icono-pdf">
+                <a href="#">Contrato de fletamento.pdf</a>
+                <label><input type="radio" name="patente001" value="valido"> Válido</label>
+                <label><input type="radio" name="patente001" value="rechazado"> Rechazado</label>
+              </li>
+              <li>
+                <img src="https://cdn-icons-png.flaticon.com/512/337/337946.png" alt="PDF" class="icono-pdf">
+                <a href="#">Licencias AMP.pdf</a>
+                <label><input type="radio" name="patente001" value="valido"> Válido</label>
+                <label><input type="radio" name="patente001" value="rechazado"> Rechazado</label>
+              </li>
+              <li>
+                <img src="https://cdn-icons-png.flaticon.com/512/337/337946.png" alt="PDF" class="icono-pdf">
+                <a href="#"> Certificados ACP.pdf</a>
+                <label><input type="radio" name="patente001" value="valido"> Válido</label>
+                <label><input type="radio" name="patente001" value="rechazado"> Rechazado</label>
+              </li>
+
+
+              <li>
+                <img src="https://cdn-icons-png.flaticon.com/512/337/337946.png" alt="PDF" class="icono-pdf">
+                <a href="#">  Sticker de inspección.pdf</a>
+                <label><input type="radio" name="patente001" value="valido"> Válido</label>
+                <label><input type="radio" name="patente001" value="rechazado"> Rechazado</label>
+              </li>
+             
+              <li>
+                <img src="https://cdn-icons-png.flaticon.com/512/337/337946.png" alt="PDF" class="icono-pdf">
+                <a href="#"> Patente de navegación.pdf</a>
+                <label><input type="radio" name="patente001" value="valido"> Válido</label>
+                <label><input type="radio" name="patente001" value="rechazado"> Rechazado</label>
+              </li>
+
+              <li>
+                <img src="https://cdn-icons-png.flaticon.com/512/337/337946.png" alt="PDF" class="icono-pdf">
+                <a href="#"> Contrato de fletamento .pdf</a>
+                <label><input type="radio" name="patente001" value="valido"> Válido</label>
+                <label><input type="radio" name="patente001" value="rechazado"> Rechazado</label>
+              </li>
+
+              <li>
+                <img src="https://cdn-icons-png.flaticon.com/512/337/337946.png" alt="PDF" class="icono-pdf">
+                <a href="#"> Certificado del Registro Público.pdf</a>
+                <label><input type="radio" name="patente001" value="valido"> Válido</label>
+                <label><input type="radio" name="patente001" value="rechazado"> Rechazado</label>
+              </li>
+              
+              <li>
+                <img src="https://cdn-icons-png.flaticon.com/512/337/337946.png" alt="PDF" class="icono-pdf">
+                <a href="#">  Autorización de Uso de Aguas.pdf</a>
+                <label><input type="radio" name="patente001" value="valido"> Válido</label>
+                <label><input type="radio" name="patente001" value="rechazado"> Rechazado</label>
+              </li>
+              
+
+             
+              
+
+            <!-- Agregar más documentos según sea necesario -->
+          </ul>
+          <button class="btn-validar" onclick="guardarValidacion('001')">Guardar Validación</button>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <footer class="footer">
+    &copy; 2025 - Autoridad del Canal de Panamá · Sistema de Exención de Practicaje v1.0
+  </footer>
+
+  <script>
+    function mostrarDocumentos(id) {
+      const seccion = document.getElementById('documentos-' + id);
+      if (seccion.style.display === 'none') {
+        seccion.style.display = 'block';
+      } else {
+        seccion.style.display = 'none';
+      }
+    }
+    function guardarValidacion(id) {
+      alert("Validación guardada correctamente para la solicitud #" + id);
+      // Aquí podrías implementar lógica para enviar la info a backend
+    }
+  </script>
+</body>
+</html>

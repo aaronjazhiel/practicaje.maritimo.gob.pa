@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Administración de Usuarios</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    :root {
+      --azul-panama: #003366;
+      --gris-fondo: #f5f7fa;
+      --azul-claro: #005a9e;
+      --azul-input: #e0f0ff;
+    }
+
+    body, html {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--gris-fondo);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background-color: var(--azul-panama);
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    header img {
+      height: 40px;
+    }
+
+    .user-info {
+      text-align: right;
+      font-size: 0.85rem;
+    }
+
+    .main-container {
+      display: flex;
+      flex: 1;
+    }
+
+    nav.sidebar {
+      width: 220px;
+      background-color: var(--azul-panama);
+      color: white;
+      padding: 2rem 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .sidebar a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+    }
+
+    .sidebar a:hover {
+      background-color: rgba(255,255,255,0.1);
+    }
+
+    main {
+      flex: 1;
+      padding: 2rem;
+    }
+
+    .container {
+      background: white;
+      border-radius: 8px;
+      padding: 2rem;
+      max-width: 1000px;
+      margin: auto;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      color: var(--azul-panama);
+      margin-bottom: 1rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 0.8rem;
+      border-bottom: 1px solid #ddd;
+      text-align: left;
+    }
+
+    th {
+      background-color: var(--azul-panama);
+      color: white;
+    }
+
+    input[type="text"], input[type="email"] {
+      width: 100%;
+      padding: 0.4rem;
+      background-color: var(--azul-input);
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .edit-btn {
+      cursor: pointer;
+      color: var(--azul-claro);
+      font-weight: bold;
+    }
+
+    .edit-btn:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      background-color: var(--azul-panama);
+      color: white;
+      text-align: center;
+      padding: 0.8rem;
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1><i class="fas fa-cogs"></i> Administración de Usuarios</h1>
+    <div class="user-info">
+      <strong>Usuario:</strong> José Pérez<br>
+      Rol: Administrador
+    </div>
+  </header>
+
+  <div class="main-container">
+    <nav class="sidebar">
+      <a href="#"><i class="fas fa-file-signature"></i> Crear solicitud</a>
+      <a href="#"><i class="fas fa-folder-open"></i> Ver solicitudes</a>
+      <a href="#"><i class="fas fa-history"></i> Historial</a>
+      <a href="#"><i class="fas fa-check-circle"></i> Validación</a>
+      <a href="#"><i class="fas fa-chart-bar"></i> Reportes</a>
+      <a href="#"><i class="fas fa-cogs"></i> Administración</a>
+    </nav>
+
+    <main>
+      <div class="container">
+        <h2>Lista de Usuarios</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Rol</th>
+              <th>Correo</th>
+              <th>Acción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>U001</td>
+              <td><input type="text" value="Carlos Ruiz" readonly /></td>
+              <td><input type="text" value="Validador" readonly /></td>
+              <td><input type="email" value="cruiz@canal.gob.pa" readonly /></td>
+              <td><span class="edit-btn" onclick="toggleEdit(this)">Editar</span></td>
+            </tr>
+            <tr>
+              <td>U002</td>
+              <td><input type="text" value="Laura Gómez" readonly /></td>
+              <td><input type="text" value="Supervisor" readonly /></td>
+              <td><input type="email" value="lgomez@canal.gob.pa" readonly /></td>
+              <td><span class="edit-btn" onclick="toggleEdit(this)">Editar</span></td>
+            </tr>
+            <tr>
+              <td>U003</td>
+              <td><input type="text" value="Ricardo Ortega" readonly /></td>
+              <td><input type="text" value="Administrador" readonly /></td>
+              <td><input type="email" value="rortega@canal.gob.pa" readonly /></td>
+              <td><span class="edit-btn" onclick="toggleEdit(this)">Editar</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+  <footer>
+    &copy; 2025 - Autoridad del Canal de Panamá · Sistema de Exención de Practicaje v1.0
+  </footer>
+
+  <script>
+    function toggleEdit(btn) {
+      const row = btn.closest('tr');
+      const inputs = row.querySelectorAll('input');
+
+      if (btn.textContent === 'Editar') {
+        inputs.forEach(input => input.removeAttribute('readonly'));
+        btn.textContent = 'Guardar';
+        btn.style.color = 'green';
+      } else {
+        inputs.forEach(input => input.setAttribute('readonly', true));
+        btn.textContent = 'Editar';
+        btn.style.color = '#005a9e';
+        // Aquí podrías agregar lógica para guardar en backend
+        console.log("Datos guardados:", [...inputs].map(i => i.value));
+      }
+    }
+  </script>
+</body>
+</html>
