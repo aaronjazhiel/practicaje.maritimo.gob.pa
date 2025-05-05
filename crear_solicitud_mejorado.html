@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Create Pilotage Exemption Request</title>
+  <title>Create Exemption Request</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     :root {
@@ -166,24 +166,24 @@
     button:hover {
       background-color: #00254d;
     }
+
+    footer {
+      background-color: var(--azul-panama);
+      color: white;
+      text-align: center;
+      padding: 0.8rem;
+      font-size: 0.85rem;
+    }
   </style>
 </head>
 <body>
-
   <header>
-    <h1><img src="./imagen/login-icon.png" alt="Logo"> Pilotage Exemption Request</h1>
+    <h1><img src="./imagen/login-icon.png" alt="Logo"> Pilotage Exemption Management</h1>
     <div class="user-info">
-      <strong>User:</strong> John Smith<br>
-      Role: Applicant
+      <strong>User:</strong> José Pérez<br>
+      Role: Validator
     </div>
   </header>
-
-  <div class="progress-bar">
-    <span>Company</span> ✔ Registered |
-    <span>Vessel</span> ✔ Data complete |
-    <span>Operator</span> ✖ Missing documents |
-    <span>Request</span> ✖ Pending attachments
-  </div>
 
   <div class="main-container">
     <nav class="sidebar">
@@ -192,28 +192,62 @@
       <a href="#"><i class="fas fa-history"></i> History</a>
       <a href="#"><i class="fas fa-check-circle"></i> Validation</a>
       <a href="#"><i class="fas fa-chart-bar"></i> Reports</a>
-      <a href="#"><i class="fas fa-cogs"></i> Admin</a>
+      <a href="#"><i class="fas fa-cogs"></i> Administration</a>
     </nav>
 
     <main>
       <div class="container">
-        <h2><i class="fas fa-ship"></i> New Exemption Request</h2>
+        <h2><i class="fas fa-ship"></i> Pilotage Exemption Request</h2>
 
         <details open>
           <summary>1. Company Information</summary>
           <form>
-            <div>
-              <label>Company Name</label>
-              <input type="text" name="companyName" required>
-            </div>
-            <div>
-              <label>RUC</label>
-              <input type="text" name="ruc" required>
-            </div>
-            <div class="full">
-              <label>Representative</label>
-              <input type="text" name="representative" required>
-            </div>
+            <div class="full"><label>Legal Name of the Company *</label><input type="text" required></div>
+            <div><label>RUC or Tax ID *</label><input type="text" required></div>
+            <div><label>Contact Phone *</label><input type="tel" required></div>
+            <div class="full"><label>Physical Address *</label><input type="text" required></div>
+            <div><label>Email *</label><input type="email" required></div>
+            <div><label>Legal Representative Name *</label><input type="text" required></div>
+            <div><label>Legal Representative ID *</label><input type="text" required></div>
+            <div><label>24/7 Contact Phone *</label><input type="tel" required></div>
+            <div class="full"><label>24/7 Contact Email *</label><input type="email" required></div>
+          </form>
+        </details>
+
+        <details>
+          <summary>2. Vessel Information</summary>
+          <form>
+            <div class="full"><label>Vessel Name *</label><input type="text"></div>
+            <div><label>Length (m) *</label><input type="number" step="0.01"></div>
+            <div><label>Beam (m) *</label><input type="number" step="0.01"></div>
+            <div><label>Depth (m) *</label><input type="number" step="0.01"></div>
+            <div><label>Tonnage *</label><input type="number"></div>
+            <div><label>Vessel Type *</label><input type="text"></div>
+            <div><label>SIN Number *</label><input type="text"></div>
+            <div class="full"><label>Machine Type and Quantity *</label><input type="text"></div>
+          </form>
+        </details>
+
+        <details>
+          <summary>3. Operator Information</summary>
+          <form>
+            <div class="full"><label>Full Name *</label><input type="text"></div>
+            <div><label>ID *</label><input type="text"></div>
+            <div class="full"><label>Address *</label><input type="text"></div>
+            <div><label>Phone *</label><input type="tel"></div>
+            <div><label>AMP License *</label><input type="text"></div>
+            <div><label>Issue Date *</label><input type="date"></div>
+            <div><label>Expiration Date *</label><input type="date"></div>
+            <div class="full"><label>Documents (PDF - certificates, licenses, booklets)</label><input type="file" multiple></div>
+          </form>
+        </details>
+
+        <details>
+          <summary>4. Exemption Request</summary>
+          <form>
+            <div class="full"><label>Operation Type *</label><input type="text"></div>
+            <div class="full"><label>Routes Where the Vessel Will Operate *</label><textarea rows="3"></textarea></div>
+            <div class="full"><label>Attach Required Documents (PDF)</label><input type="file" multiple></div>
           </form>
         </details>
 
@@ -224,5 +258,5 @@
     </main>
   </div>
 
-</body>
-</html>
+  <footer>
+    &copy; 2025
