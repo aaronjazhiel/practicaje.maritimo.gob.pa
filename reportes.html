@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Reports - Pilotage Exemption System</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    :root {
+      --blue-dark: #003366;
+      --blue-light: #005a9e;
+      --gray-bg: #f5f7fa;
+      --white: #ffffff;
+      --green: #4CAF50;
+      --orange: #f4a742;
+      --red: #dc3545;
+      --light-blue: #17a2b8;
+    }
+
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--gray-bg);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background-color: var(--blue-dark);
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    header img {
+      height: 40px;
+    }
+
+    .main-container {
+      display: flex;
+      flex: 1;
+    }
+
+    nav.sidebar {
+      width: 220px;
+      background-color: var(--blue-dark);
+      color: white;
+      padding: 2rem 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .sidebar a {
+      color: white;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .sidebar a:hover {
+      background-color: rgba(255,255,255,0.1);
+      border-radius: 4px;
+      padding: 0.4rem;
+    }
+
+    main {
+      flex: 1;
+      padding: 2rem;
+    }
+
+    .report-section {
+      background-color: var(--white);
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .charts {
+      display: flex;
+      gap: 2rem;
+      justify-content: space-around;
+      margin-bottom: 2rem;
+    }
+
+    .chart-container {
+      flex: 1;
+      max-width: 300px;
+      text-align: center;
+    }
+
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.8rem;
+      margin-bottom: 1.2rem;
+    }
+
+    select, input[type="date"] {
+      padding: 0.4rem;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-filter {
+      background-color: var(--blue-light);
+      color: white;
+    }
+
+    .btn-excel {
+      background-color: var(--green);
+      color: white;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+
+    th, td {
+      padding: 0.8rem;
+      border: 1px solid #ccc;
+      text-align: left;
+    }
+
+    th {
+      background-color: var(--blue-dark);
+      color: white;
+    }
+
+    .pagination {
+      display: flex;
+      justify-content: center;
+      margin-top: 1rem;
+      gap: 1rem;
+    }
+
+    footer {
+      background-color: var(--blue-dark);
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1><img src="./imagen/login-icon.png" alt="Logo"> Pilotage Exemption Management</h1>
+    <div><strong>User:</strong> José Pérez | Role: Validator</div>
+  </header>
+
+  <div class="main-container">
+    <nav class="sidebar">
+      <a href="#"><i class="fas fa-file-signature"></i> Create Request</a>
+      <a href="#"><i class="fas fa-folder-open"></i> View Requests</a>
+      <a href="#"><i class="fas fa-history"></i> History</a>
+      <a href="#"><i class="fas fa-check-circle"></i> Validation</a>
+      <a href="#"><i class="fas fa-chart-bar"></i> Reports</a>
+      <a href="#"><i class="fas fa-cogs"></i> Administration</a>
+    </nav>
+
+    <main>
+      <div class="report-section">
+        <h2><i class="fas fa-chart-bar"></i> Reports</h2>
+
+        <div class="charts">
+          <div class="chart-container">
+            <h4>Status Distribution</h4>
+            <canvas id="statusChart"></canvas>
+          </div>
+          <div class="chart-container">
+            <h4>Payment Distribution</h4>
+            <canvas id="paymentChart"></canvas>
+          </div>
+          <div class="chart-container">
+            <h4>Expiration</h4>
+            <canvas id="expirationChart"></canvas>
+          </div>
+        </div>
+
+        <div class="filters">
+          <strong><i class="fas fa-filter"></i> Filter Reports</strong>
+          <label>From: <input type="date"></label>
+          <label>To: <input type="date"></label>
+          <label>Status: <select><option>All</option><option>Pending</option><option>Approved</option><option>Rejected</option></select></label>
+          <label>Payment: <select><option>All</option><option>Paid</option><option>Unpaid</option></select></label>
+          <label>Exemption: <select><option>All</option><option>Yes</option><option>No</option></select></label>
+          <label>Expiration: <select><option>All</option><option>Expiring Soon</option><option>Not Expiring</option></select></label>
+          <button class="btn-filter">Filter</button>
+          <button class="btn-excel">Export to Excel</button>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th><input type="checkbox"></th>
+              <th>ID</th>
+              <th>Company</th>
+              <th>Vessel</th>
+              <th>Status</th>
+              <th>Exemption</th>
+              <th>Payment</th>
+              <th>Expiration</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><input type="checkbox"></td>
+              <td>001</td>
+              <td>Transmar</td>
+              <td>Oceanía</td>
+              <td>Pending</td>
+              <td>Yes</td>
+              <td>Paid</td>
+              <td>Expiring Soon</td>
+            </tr>
+            <tr>
+              <td><input type="checkbox"></td>
+              <td>002</td>
+              <td>Canal Logistics</td>
+              <td>Barú</td>
+              <td>Approved</td>
+              <td>Yes</td>
+              <td>Paid</td>
+              <td>Not Expiring</td>
+            </tr>
+            <tr>
+              <td><input type="checkbox"></td>
+              <td>003</td>
+              <td>Pacífico S.A.</td>
+              <td>Neptuno</td>
+              <td>Rejected</td>
+              <td>No</td>
+              <td>Unpaid</td>
+              <td>Expiring Soon</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="pagination">
+          <button class="btn-filter">Prev</button>
+          <button class="btn-filter">Next</button>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <footer>
+    &copy; 2025 - Panama Canal Authority · Pilotage Exemption System v1.0
+  </footer>
+
+  <script>
+    const statusChart = new Chart(document.getElementById('statusChart'), {
+      type: 'doughnut',
+      data: {
+        labels: ['Pending', 'Approved', 'Rejected'],
+        datasets: [{
+          data: [2, 1, 1],
+          backgroundColor: ['#f4a742', '#4CAF50', '#dc3545']
+        }]
+      }
+    });
+
+    const paymentChart = new Chart(document.getElementById('paymentChart'), {
+      type: 'pie',
+      data: {
+        labels: ['Paid', 'Unpaid'],
+        datasets: [{
+          data: [3, 1],
+          backgroundColor: ['#17a2b8', '#dc3545']
+        }]
+      }
+    });
+
+    const expirationChart = new Chart(document.getElementById('expirationChart'), {
+      type: 'bar',
+      data: {
+        labels: ['Expiring Soon', 'Not Expiring'],
+        datasets: [{
+          label: 'Expiration',
+          data: [2, 1],
+          backgroundColor: ['#f4a742', '#4CAF50']
+        }]
+      }
+    });
+  </script>
+</body>
+</html>
